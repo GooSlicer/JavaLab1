@@ -7,9 +7,7 @@ public class SecondTask {
     public String[] StringArray(){
         int n = 0;
         Scanner scanner = new Scanner(System.in);
-
         System.out.print("Введите количество строк: ");
-
         if (scanner.hasNextInt()) {
             n = scanner.nextInt();
         }

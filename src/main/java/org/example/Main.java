@@ -43,6 +43,10 @@ public class Main
         System.out.print("\n***СТРОКА С ЧИСЛАМИ***\n");
         SecondTask digits = new SecondTask();
         digits.FindLineWithDigits(strings);
+
+        System.out.print("\n***СТРОКА С ЧИСЛАМИ***\n");
+        ThirdTask calc = new ThirdTask();
+        calc.AskForAction();
     }
 }
 
