@@ -18,29 +18,32 @@ public class ThirdTask {
         System.out.print("2. -\n");
         System.out.print("3. *\n");
         System.out.print("4. /\n");
+        System.out.print("Напишите 'Выход'\n");
         String action = scanner.next();
-
+        if (Objects.equals(action, "Выход\n")){
+            System.exit(1);
+        }
         if (Objects.equals(action, "+")) {
-            System.out.print(ArithmeticalMethods.ActionAddition(a, b));
+            System.out.print("Ответ: " + ArithmeticalMethods.ActionAddition(a, b) + "\n");
             AskForAction();
         }
         else {
             if (Objects.equals(action, "-")) {
-                System.out.print(ArithmeticalMethods.ActionSubtraction(a, b));
+                System.out.print("Ответ: " + ArithmeticalMethods.ActionSubtraction(a, b) + "\n");
                 AskForAction();
             }
             else {
                 if (Objects.equals(action, "*")) {
-                    System.out.print(ArithmeticalMethods.ActionMultiplication(a, b));
+                    System.out.print("Ответ: " + ArithmeticalMethods.ActionMultiplication(a, b) + "\n");
                     AskForAction();
                 }
                 else {
                     if(Objects.equals(action, "/")) {
-                        System.out.print(ArithmeticalMethods.ActionDivision(a, b));
+                        System.out.print("Ответ: " + ArithmeticalMethods.ActionDivision(a, b) + "\n");
                         AskForAction();
                     }
                     else {
-                        System.out.print("Неизвестная команда");
+                        System.out.print("Неизвестная команда\n");
                         AskForAction();
                     }
                 }
