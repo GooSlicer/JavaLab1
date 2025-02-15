@@ -35,8 +35,8 @@ public class Main {
         String[] strings = string.stringArray();
 
         System.out.print("\n***КОРОТКАЯ И ДЛИННАЯ***\n");
-        Strings minmaxstring = new Strings();
-        minmaxstring.findMinMaxString(strings);
+        Strings minmaxstr = new Strings();
+        minmaxstr.findMinMaxString(strings);
 
         System.out.print("\n***СРЕДНЯЯ ДЛИНА***\n");
         Strings avg = new Strings();

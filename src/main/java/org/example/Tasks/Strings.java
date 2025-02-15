@@ -1,10 +1,9 @@
 package org.example.Tasks;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Strings {
-    public String[] stringArray() { //метод, задающий строку
+    public String[] stringArray() { //метод, задающий строки
         int n = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите количество строк: ");
@@ -22,7 +21,7 @@ public class Strings {
     }
 
     public void findMinMaxString(String[] string) { //находит самую длинную строку
-        String maxString = null;
+        String maxString = null; //если одинаковые вывести все
         String minString = null;
         int maxStringLength = 0;
         int minStringLength = 0;
@@ -42,11 +41,11 @@ public class Strings {
 
     public void findAverage(String[] string) { //находит среднюю длину
         int sum = 0;
-        int avg;
+        double avg;
         for (String s : string) {
             sum += s.length();
         }
-        avg = sum / string.length;
+        avg = (double) sum / string.length; //чтоб отработал без кастануть
         System.out.println("Средняя длина: " + avg);
         for (String s : string) {
             if (s.length() > avg) {
@@ -57,7 +56,7 @@ public class Strings {
 
     public void findLineWithDigits(String[] string) { //находит строку с только числами
         for (String s : string) {
-            if (Pattern.matches("[0-9]+", s) && s.length() > 2) {
+            if (s.contains("1234567890")) {
                 System.out.println("Строка с только цифрами: " + s);
             }
             else {

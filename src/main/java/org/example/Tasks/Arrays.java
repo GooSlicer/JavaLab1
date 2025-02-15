@@ -57,30 +57,22 @@ public class Arrays {
     }
 
     public void findDifference(int[] arr) { //находит разницу среднего ариф и минимального элемента
-        int avg;
-        int result;
         int min = arr[0];
         int sum = 0;
-        for (int i = 1; i < arr.length; i++) {
-            sum += arr[i];
-        }
-        avg = sum / arr.length;
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < min) {
-                min = arr[i];
+        for (int j : arr) {
+            sum += j;
+            if (j < min) {
+                min = j;
             }
         }
-        result = avg - min;
-        System.out.print("\n");
-        System.out.print(result);
+        System.out.print(sum / arr.length - min);
     }
 
     public void similarElementsCount(int[] arr) { //метод, который ищет повторяющиеся элементы
-        System.out.print("\n");
-        int size = arr.length;
         int index = 0;
-        int[][] result = new int[size][2];
+        int[][] result = new int[arr.length][2];
         boolean isNew;
+
         for (int value : arr) {
             isNew = true;
             for (int i = 0; i < index; i++) {
