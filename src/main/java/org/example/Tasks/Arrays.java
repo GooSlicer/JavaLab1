@@ -1,14 +1,11 @@
-package org.example;
+package org.example.Tasks;
+
 import java.util.Random;
 
-public class Arrays
-{
-    public int[] fillingRandomArray() { //заполняет массив
+public class Arrays {
+    public int[] fillingRandomArray(int size, int origin, int bound) { //заполняет массив
         Random random = new Random();
-        int size = 20;
         int[] array = new int[size];
-        int origin = -10;
-        int bound = 10;
 
         for (int i = 0; i < size; i++) {
             array[i] = random.nextInt(origin, bound);
@@ -19,15 +16,16 @@ public class Arrays
         System.out.print("\n");
         return array;
     }
-    public void swapMinMax(int[] arr){ //меняет мин и макс
+
+    public void swapMinMax(int[] arr) { //меняет мин и макс
         int minIdx = 0;
         int maxIdx = 0;
         int temp;
-        for(int i = 1; i < arr.length; i++){
+        for (int i = 1; i < arr.length; i++) {
             if (arr[i] < arr[minIdx]) {
                 minIdx = i;
             }
-            if(arr[i] > arr[maxIdx]) {
+            if (arr[i] > arr[maxIdx]) {
                 maxIdx = i;
             }
         }
@@ -38,15 +36,17 @@ public class Arrays
             System.out.print(j + " ");
         }
     }
-    public void sumEvenElements (int[] arr){ //суммирует четные элементы
+
+    public void sumEvenElements(int[] arr) { //суммирует четные элементы
         int sum = 0;
-        for (int i = 1; i < arr.length; i+=2) {
+        for (int i = 1; i < arr.length; i += 2) {
             sum += arr[i];
         }
         System.out.print("\n");
         System.out.print(sum);
     }
-    public void replaceNegativeElements (int[] arr){ //заменяет отрицательные числа нулями
+
+    public void replaceNegativeElements(int[] arr) { //заменяет отрицательные числа нулями
         System.out.print("\n");
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < 0) {
@@ -55,7 +55,8 @@ public class Arrays
             System.out.print(arr[i] + " ");
         }
     }
-    public void findDifference (int[] arr){ //находит разницу среднего ариф и минимального элемента
+
+    public void findDifference(int[] arr) { //находит разницу среднего ариф и минимального элемента
         int avg;
         int result;
         int min = arr[0];
@@ -63,7 +64,7 @@ public class Arrays
         for (int i = 1; i < arr.length; i++) {
             sum += arr[i];
         }
-        avg = sum/ arr.length;
+        avg = sum / arr.length;
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] < min) {
                 min = arr[i];
@@ -74,7 +75,7 @@ public class Arrays
         System.out.print(result);
     }
 
-    public void similarElementsCount (int[] arr){ //метод, который ищет повторяющиеся элементы
+    public void similarElementsCount(int[] arr) { //метод, который ищет повторяющиеся элементы
         System.out.print("\n");
         int size = arr.length;
         int index = 0;

@@ -1,16 +1,16 @@
-package org.example;
+package org.example.Calculator;
 
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Calculator {
-    public void askForAction(){
+    public void askForAction() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Введите первое число: ");
         int a = scanner.nextInt();
 
-        System.out.print("Введите первое число: ");
+        System.out.print("Введите второе число: ");
         int b = scanner.nextInt();
 
         System.out.print("Выберите действие: \n");
@@ -20,7 +20,7 @@ public class Calculator {
         System.out.print("4. /\n");
         System.out.print("Напишите 'Выход' для выхода\n");
         String action = scanner.next();
-        if (Objects.equals(action, "Выход")){
+        if (Objects.equals(action, "Выход")) {
             System.exit(130);
         }
         switch (action) {

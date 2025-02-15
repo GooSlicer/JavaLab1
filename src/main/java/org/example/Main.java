@@ -1,12 +1,14 @@
 package org.example;
 
-public class Main
-{
-    public static void main(String[] args)
-    {
+import org.example.Calculator.Calculator;
+import org.example.Tasks.Arrays;
+import org.example.Tasks.Strings;
+
+public class Main {
+    public static void main(String[] args) {
         System.out.print("\n***МАССИВ***\n");
         Arrays fillingArray = new Arrays();
-        int[] array = fillingArray.fillingRandomArray();
+        int[] array = fillingArray.fillingRandomArray(20, -10, 10);
 
         System.out.print("\n***ПОМЕНЯТЬ МЕСТАМИ МИНМАКС***\n");
         Arrays swap = new Arrays();
@@ -33,8 +35,8 @@ public class Main
         String[] strings = string.stringArray();
 
         System.out.print("\n***КОРОТКАЯ И ДЛИННАЯ***\n");
-        Strings minmaxstr = new Strings();
-        minmaxstr.findMinMaxString(strings);
+        Strings minmaxstring = new Strings();
+        minmaxstring.findMinMaxString(strings);
 
         System.out.print("\n***СРЕДНЯЯ ДЛИНА***\n");
         Strings avg = new Strings();
