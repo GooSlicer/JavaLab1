@@ -20,7 +20,7 @@ public class Calculator {
         System.out.print("4. /\n");
         System.out.print("Напишите 'Выход' для выхода\n");
         String action = scanner.next();
-        if (Objects.equals(action, "Выход")) {
+        if (Objects.equals(action, "Выход")) { //черезе while сделать
             System.exit(130);
         }
         switch (action) {
