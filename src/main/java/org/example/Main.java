@@ -5,47 +5,47 @@ public class Main
     public static void main(String[] args)
     {
         System.out.print("\n***МАССИВ***\n");
-        FirstTask fillingArray = new FirstTask();
+        Arrays fillingArray = new Arrays();
         int[] array = fillingArray.FillingRandomArray();
 
         System.out.print("\n***ПОМЕНЯТЬ МЕСТАМИ МИНМАКС***\n");
-        FirstTask swap = new FirstTask();
+        Arrays swap = new Arrays();
         swap.swapMinMax(array);
 
         System.out.print("\n\n***СЛОЖИТЬ ЧЕТНЫЕ***");
-        FirstTask sum = new FirstTask();
+        Arrays sum = new Arrays();
         sum.SumEvenElements(array);
 
         System.out.print("\n\n***РАЗНИЦА***");
-        FirstTask difference = new FirstTask();
+        Arrays difference = new Arrays();
         difference.FindDifference(array);
 
         System.out.print("\n\n***ПОДСЧЕТ***");
-        FirstTask count = new FirstTask();
+        Arrays count = new Arrays();
         count.SimilarElementsCount(array);
 
         System.out.print("\n\n***ЗАМЕНА ОТРИЦАТЕЛЬНЫХ***");
-        FirstTask replace = new FirstTask();
+        Arrays replace = new Arrays();
         replace.ReplaceNegativeElements(array);
 
         System.out.print("\n\n***СТРОКА***\n");
-        SecondTask string = new SecondTask();
+        Strings string = new Strings();
         String[] strings = string.StringArray();
 
         System.out.print("\n***КОРОТКАЯ И ДЛИННАЯ***\n");
-        SecondTask minmaxstr = new SecondTask();
+        Strings minmaxstr = new Strings();
         minmaxstr.FindMinMaxString(strings);
 
         System.out.print("\n***СРЕДНЯЯ ДЛИНА***\n");
-        SecondTask avg = new SecondTask();
+        Strings avg = new Strings();
         avg.FindAverage(strings);
 
         System.out.print("\n***СТРОКА С ЧИСЛАМИ***\n");
-        SecondTask digits = new SecondTask();
+        Strings digits = new Strings();
         digits.FindLineWithDigits(strings);
 
-        System.out.print("\n***СТРОКА С ЧИСЛАМИ***\n");
-        ThirdTask calc = new ThirdTask();
+        System.out.print("\n***КАЛЬКУЛЯТОР***\n");
+        Calculator calc = new Calculator();
         calc.AskForAction();
     }
 }
