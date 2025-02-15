@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Calculator {
-    public void AskForAction(){
+    public void askForAction(){
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Введите первое число: ");
@@ -18,36 +18,32 @@ public class Calculator {
         System.out.print("2. -\n");
         System.out.print("3. *\n");
         System.out.print("4. /\n");
-        System.out.print("Напишите 'Выход'\n");
+        System.out.print("Напишите 'Выход' для выхода\n");
         String action = scanner.next();
         if (Objects.equals(action, "Выход")){
             System.exit(130);
         }
-        if (Objects.equals(action, "+")) {
-            System.out.print("Ответ: " + ArithmeticalMethods.ActionAddition(a, b) + "\n");
-            AskForAction();
-        }
-        else {
-            if (Objects.equals(action, "-")) {
-                System.out.print("Ответ: " + ArithmeticalMethods.ActionSubtraction(a, b) + "\n");
-                AskForAction();
-            }
-            else {
-                if (Objects.equals(action, "*")) {
-                    System.out.print("Ответ: " + ArithmeticalMethods.ActionMultiplication(a, b) + "\n");
-                    AskForAction();
-                }
-                else {
-                    if(Objects.equals(action, "/")) {
-                        System.out.print("Ответ: " + ArithmeticalMethods.ActionDivision(a, b) + "\n");
-                        AskForAction();
-                    }
-                    else {
-                        System.out.print("Неизвестная команда\n");
-                        AskForAction();
-                    }
-                }
-            }
+        switch (action) {
+            case ("1"):
+                System.out.print("Ответ: " + ArithmeticalMethods.actionAddition(a, b) + "\n");
+                askForAction();
+                break;
+            case ("2"):
+                System.out.print("Ответ: " + ArithmeticalMethods.actionSubtraction(a, b) + "\n");
+                askForAction();
+                break;
+            case ("3"):
+                System.out.print("Ответ: " + ArithmeticalMethods.actionMultiplication(a, b) + "\n");
+                askForAction();
+                break;
+            case ("4"):
+                System.out.print("Ответ: " + ArithmeticalMethods.actionDivision(a, b) + "\n");
+                askForAction();
+                break;
+            default:
+                System.out.print("Неизвестная команда\n");
+                askForAction();
+                break;
         }
     }
 }

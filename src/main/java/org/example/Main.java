@@ -6,7 +6,7 @@ public class Main
     {
         System.out.print("\n***МАССИВ***\n");
         Arrays fillingArray = new Arrays();
-        int[] array = fillingArray.FillingRandomArray();
+        int[] array = fillingArray.fillingRandomArray();
 
         System.out.print("\n***ПОМЕНЯТЬ МЕСТАМИ МИНМАКС***\n");
         Arrays swap = new Arrays();
@@ -14,39 +14,39 @@ public class Main
 
         System.out.print("\n\n***СЛОЖИТЬ ЧЕТНЫЕ***");
         Arrays sum = new Arrays();
-        sum.SumEvenElements(array);
+        sum.sumEvenElements(array);
 
         System.out.print("\n\n***РАЗНИЦА***");
         Arrays difference = new Arrays();
-        difference.FindDifference(array);
+        difference.findDifference(array);
 
         System.out.print("\n\n***ПОДСЧЕТ***");
         Arrays count = new Arrays();
-        count.SimilarElementsCount(array);
+        count.similarElementsCount(array);
 
         System.out.print("\n\n***ЗАМЕНА ОТРИЦАТЕЛЬНЫХ***");
         Arrays replace = new Arrays();
-        replace.ReplaceNegativeElements(array);
+        replace.replaceNegativeElements(array);
 
         System.out.print("\n\n***СТРОКА***\n");
         Strings string = new Strings();
-        String[] strings = string.StringArray();
+        String[] strings = string.stringArray();
 
         System.out.print("\n***КОРОТКАЯ И ДЛИННАЯ***\n");
         Strings minmaxstr = new Strings();
-        minmaxstr.FindMinMaxString(strings);
+        minmaxstr.findMinMaxString(strings);
 
         System.out.print("\n***СРЕДНЯЯ ДЛИНА***\n");
         Strings avg = new Strings();
-        avg.FindAverage(strings);
+        avg.findAverage(strings);
 
         System.out.print("\n***СТРОКА С ЧИСЛАМИ***\n");
         Strings digits = new Strings();
-        digits.FindLineWithDigits(strings);
+        digits.findLineWithDigits(strings);
 
         System.out.print("\n***КАЛЬКУЛЯТОР***\n");
         Calculator calc = new Calculator();
-        calc.AskForAction();
+        calc.askForAction();
     }
 }
 

@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Strings {
-    public String[] StringArray(){
+    public String[] stringArray(){ //метод, задающий строку
         int n = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите количество строк: ");
@@ -20,7 +20,7 @@ public class Strings {
         }
         return strings;
     }
-    public void FindMinMaxString (String[] string) {
+    public void findMinMaxString (String[] string) { //находит самую длинную строку
         String str = null;
         int max = 0;
         for (String s : string) {
@@ -31,25 +31,24 @@ public class Strings {
         }
         System.out.println("Длина: " + max + " Строка: " + str);
     }
-    public void FindAverage (String[] string) {
-        int max = 0;
+    public void findAverage (String[] string) { //находит среднюю длину
         int sum = 0;
-        int avg = 0;
-        for (int i = 0; i < string.length; i++) {
-            sum += string[i].length();
+        int avg;
+        for (String s : string) {
+            sum += s.length();
         }
         avg = sum/string.length;
         System.out.println("Средняя длина: " + avg);
-        for (int i = 0; i < string.length; i++) {
-            if(string[i].length() > avg){
-                System.out.println("Строка: " + string[i] + " Длина: " + string[i].length());
+        for (String s : string) {
+            if (s.length() > avg) {
+                System.out.println("Строка: " + s + " Длина: " + s.length());
             }
         }
     }
-    public void FindLineWithDigits(String[] string) {
-        for (int i = 0; i < string.length; i++) {
-            if(Pattern.matches("[0-9]+", string[i]) && string[i].length() > 2){
-                System.out.println("Строка с только цифрами: " + string[i]);
+    public void findLineWithDigits(String[] string) { //находит строку с только числами
+        for (String s : string) {
+            if (Pattern.matches("[0-9]+", s) && s.length() > 2) {
+                System.out.println("Строка с только цифрами: " + s);
             }
         }
     }
