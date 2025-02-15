@@ -3,7 +3,8 @@ package org.example.Tasks;
 import java.util.Scanner;
 
 public class Strings {
-    public String[] stringArray() { //метод, задающий строки
+    //метод, задающий строки
+    public String[] stringArray() {
         int n = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите количество строк: ");
@@ -19,8 +20,8 @@ public class Strings {
         }
         return strings;
     }
-
-    public void findMinMaxString(String[] string) { //находит самую длинную строку
+    //находит самую длинную строку
+    public void findMinMaxString(String[] string) {
         String maxString = null; //если одинаковые вывести все
         String minString = null;
         int maxStringLength = 0;
@@ -38,29 +39,33 @@ public class Strings {
         System.out.println("Длина самой длинной: " + maxStringLength + " Самая длинная строка: " + maxString + "\n"
                 + "Длина самой короткой: " + minStringLength + " Самая короткая строка: " + minString);
     }
-
-    public void findAverage(String[] string) { //находит среднюю длину
-        int sum = 0;
+    //находит среднюю длину
+    public void findAverage(String[] string) {
+        double sum = 0;
         double avg;
         for (String s : string) {
             sum += s.length();
         }
-        avg = (double) sum / string.length; //чтоб отработал без кастануть
-        System.out.println("Средняя длина: " + avg);
-        for (String s : string) {
-            if (s.length() > avg) {
-                System.out.println("Строка: " + s + " Длина: " + s.length());
+        if(!(string.length == 0)){
+            avg = sum / string.length;
+            System.out.println("Средняя длина: " + avg);
+            for (String s : string) {
+                if (s.length() > avg) {
+                    System.out.println("Строка: " + s + " Длина: " + s.length());
+                }
             }
         }
+        else {
+            System.out.println("Пустая строка");
+        }
     }
-
-    public void findLineWithDigits(String[] string) { //находит строку с только числами
+    //находит строку с только числами
+    public void findLineWithDigits(String[] string) {
         for (String s : string) {
-            if (s.contains("1234567890")) {
-                System.out.println("Строка с только цифрами: " + s);
-            }
-            else {
-                System.out.println("Нет строки с числами");
+            for (int j = 0; j < s.length(); j++) {
+                if (Character.isDigit(s.charAt(j))) {
+                    System.out.print(s.charAt(j));
+                }
             }
         }
     }

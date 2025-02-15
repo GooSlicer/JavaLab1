@@ -22,7 +22,7 @@ public class Main {
         Arrays difference = new Arrays();
         difference.findDifference(array);
 
-        System.out.print("\n\n***ПОДСЧЕТ***");
+        System.out.print("\n\n***ПОДСЧЕТ***\n");
         Arrays count = new Arrays();
         count.similarElementsCount(array);
 

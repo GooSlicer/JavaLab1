@@ -3,7 +3,8 @@ package org.example.Tasks;
 import java.util.Random;
 
 public class Arrays {
-    public int[] fillingRandomArray(int size, int origin, int bound) { //заполняет массив
+    //заполняет массив
+    public int[] fillingRandomArray(int size, int origin, int bound) {
         Random random = new Random();
         int[] array = new int[size];
 
@@ -16,8 +17,8 @@ public class Arrays {
         System.out.print("\n");
         return array;
     }
-
-    public void swapMinMax(int[] arr) { //меняет мин и макс
+    //меняет мин и макс
+    public void swapMinMax(int[] arr) {
         int minIdx = 0;
         int maxIdx = 0;
         int temp;
@@ -36,8 +37,8 @@ public class Arrays {
             System.out.print(j + " ");
         }
     }
-
-    public void sumEvenElements(int[] arr) { //суммирует четные элементы
+    //суммирует четные элементы
+    public void sumEvenElements(int[] arr) {
         int sum = 0;
         for (int i = 1; i < arr.length; i += 2) {
             sum += arr[i];
@@ -45,8 +46,8 @@ public class Arrays {
         System.out.print("\n");
         System.out.print(sum);
     }
-
-    public void replaceNegativeElements(int[] arr) { //заменяет отрицательные числа нулями
+    //заменяет отрицательные числа нулями
+    public void replaceNegativeElements(int[] arr) {
         System.out.print("\n");
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < 0) {
@@ -55,8 +56,8 @@ public class Arrays {
             System.out.print(arr[i] + " ");
         }
     }
-
-    public void findDifference(int[] arr) { //находит разницу среднего ариф и минимального элемента
+    //находит разницу среднего ариф и минимального элемента
+    public void findDifference(int[] arr) {
         int min = arr[0];
         int sum = 0;
         for (int j : arr) {
@@ -65,32 +66,21 @@ public class Arrays {
                 min = j;
             }
         }
-        System.out.print(sum / arr.length - min);
+        System.out.print("\n" + (sum / arr.length - min));
     }
-
-    public void similarElementsCount(int[] arr) { //метод, который ищет повторяющиеся элементы
-        int index = 0;
-        int[][] result = new int[arr.length][2];
-        boolean isNew;
-
-        for (int value : arr) {
-            isNew = true;
-            for (int i = 0; i < index; i++) {
-                if (result[i][0] == value) {
-                    result[i][1]++;
-                    isNew = false;
-                    break;
+    //метод, который ищет повторяющиеся элементы
+    public void similarElementsCount(int[] arr) {
+        int[] result = new int[arr.length];
+        for (int i=0; i<arr.length; i++){
+            for (int k : arr) {
+                if (arr[i] == k) {
+                    result[i]++;
                 }
             }
-            if (isNew) {
-                result[index][0] = value;
-                result[index][1] = 1;
-                index++;
-            }
         }
-        for (int[] item : result) {
-            if (item[1] > 1) {
-                System.out.printf("Число: %d \tКоличество повторений: %d\n", item[0], item[1]);
+        for (int i=0; i<arr.length; i++) {
+            if(!(result[i] == 1)){
+                System.out.print(result[i] + " раз " + arr[i] + "\n");
             }
         }
     }
