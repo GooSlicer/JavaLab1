@@ -1,5 +1,6 @@
 package org.example.Tasks;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Strings {
@@ -22,7 +23,7 @@ public class Strings {
     }
     //находит самую длинную строку
     public void findMinMaxString(String[] string) {
-        String maxString = null; //если одинаковые вывести все
+        String maxString = null; //если одинаковые вывести все ++++++++
         String minString = null;
         int maxStringLength = 0;
         int minStringLength = 0;
@@ -36,8 +37,13 @@ public class Strings {
                 minString = s;
             }
         }
-        System.out.println("Длина самой длинной: " + maxStringLength + " Самая длинная строка: " + maxString + "\n"
-                + "Длина самой короткой: " + minStringLength + " Самая короткая строка: " + minString);
+        if (Objects.equals(maxString, minString)){
+            System.out.println("Минимальная и максимальная совпали");
+        }
+        else {
+            System.out.println("Длина самой длинной: " + maxStringLength + " Самая длинная строка: " + maxString + "\n"
+                    + "Длина самой короткой: " + minStringLength + " Самая короткая строка: " + minString);
+        }
     }
     //находит среднюю длину
     public void findAverage(String[] string) {
