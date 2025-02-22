@@ -70,18 +70,24 @@ public class Arrays {
     }
     //метод, который ищет повторяющиеся элементы
     public void similarElementsCount(int[] arr) {
-        int[] result = new int[arr.length];
-        for (int i=0; i<arr.length; i++){
-            for (int k : arr) {
-                if (arr[i] == k) {
-                    result[i]++;
+        int count = 0;
+        boolean isTheSame = true;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                if (isTheSame) {
+                    if (arr[i] == arr[j] && j < i) {
+                        isTheSame = false;
+                    }
+                    if (arr[i] == arr[j]) {
+                        count++;
+                    }
                 }
             }
-        }
-        for (int i=0; i<arr.length; i++) {
-            if(!(result[i] == 1)){
-                System.out.print(result[i] + " раз " + arr[i] + "\n");
+            if (count > 1) {
+                System.out.println(arr[i] + " " + count + " раза");
             }
+            isTheSame = true;
+            count = 0;
         }
     }
 }

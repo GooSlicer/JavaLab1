@@ -23,7 +23,7 @@ public class Strings {
     }
     //находит самую длинную строку
     public void findMinMaxString(String[] string) {
-        String maxString = null; //если одинаковые вывести все ++++++++
+        String maxString = null;
         String minString = null;
         int maxStringLength = 0;
         int minStringLength = 0;
@@ -68,9 +68,10 @@ public class Strings {
     //находит строку с только числами
     public void findLineWithDigits(String[] string) {
         for (String s : string) {
-            for (int j = 0; j < s.length(); j++) {
-                if (Character.isDigit(s.charAt(j))) {
-                    System.out.print(s.charAt(j));
+            char[] chars = s.toCharArray();
+            for (char aChar : chars) {
+                if (aChar == '0' || aChar == '1' || aChar == '2' || aChar == '3' || aChar == '4' || aChar == '5' || aChar == '6' || aChar == '7' || aChar == '8' || aChar == '9') {
+                    System.out.print(aChar);
                 }
             }
         }
