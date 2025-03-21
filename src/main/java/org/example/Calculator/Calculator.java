@@ -3,46 +3,94 @@ package org.example.Calculator;
 import java.util.Scanner;
 
 public class Calculator {
+    private double result = 0;
+    private boolean isFirstOperation = true;
+
     public void askForAction() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Выберите действие: \n");
-        System.out.print("1. +\n");
-        System.out.print("2. -\n");
-        System.out.print("3. *\n");
-        System.out.print("4. /\n");
-        System.out.print("Напишите 'Выход' для выхода\n");
-        String action = scanner.next();
+        while (true) {
+            if (isFirstOperation) {
+                System.out.print("Введите выражение или 'exit' для выхода: ");
+            } else {
+                System.out.print("Введите оператор и число или 'exit' для выхода: ");
+            }
 
-        System.out.print("Введите первое число: ");
-        int a = scanner.nextInt();
+            String input = scanner.nextLine().trim();
 
-        System.out.print("Введите второе число: ");
-        int b = scanner.nextInt();
+            if (input.equalsIgnoreCase("exit")) {
+                break;
+            }
 
-        while (!action.equals("Выход")) { //черезе while сделать+++++
-            switch (action) {
-                case ("1"):
-                    System.out.print("Ответ: " + ArithmeticalMethods.actionAddition(a, b) + "\n");
-                    askForAction();
-                    break;
-                case ("2"):
-                    System.out.print("Ответ: " + ArithmeticalMethods.actionSubtraction(a, b) + "\n");
-                    askForAction();
-                    break;
-                case ("3"):
-                    System.out.print("Ответ: " + ArithmeticalMethods.actionMultiplication(a, b) + "\n");
-                    askForAction();
-                    break;
-                case ("4"):
-                    System.out.print("Ответ: " + ArithmeticalMethods.actionDivision(a, b) + "\n");
-                    askForAction();
-                    break;
-                default:
-                    System.out.print("Неизвестная команда\n");
-                    askForAction();
-                    break;
+            try {
+                if (isFirstOperation) {
+                    result = evaluateExpression(input);
+                    isFirstOperation = false;
+                } else {
+                    result = evaluateNextOperation(input, result);
+                }
+                System.out.printf("Результат: %.3f%n", result);
+            } catch (IllegalArgumentException | ArithmeticException e) {
+                System.out.println("Ошибка: " + e.getMessage());
             }
         }
+    }
+
+    private double evaluateExpression(String expression) {
+        if (expression.contains("sqrt")) {
+            return evaluateSquareRoot(expression);
+        } else {
+            return evaluateBinaryOperation(expression);
+        }
+    }
+
+    private double evaluateBinaryOperation(String expression) {
+        String[] parts = expression.split("(?<=[-+*/^])|(?=[-+*/^])");
+        if (parts.length != 3) {
+            throw new IllegalArgumentException("Некорректное выражение.");
+        }
+
+        double a = Double.parseDouble(parts[0]);
+        String operator = parts[1];
+        double b = Double.parseDouble(parts[2]);
+
+        return performOperation(a, b, operator);
+    }
+
+    private double evaluateSquareRoot(String expression) {
+        String numberPart = expression.replace("sqrt", "").trim();
+        double number = Double.parseDouble(numberPart);
+        if (number < 0) {
+            throw new IllegalArgumentException("Квадратный корень из отрицательного числа невозможен.");
+        }
+        return Math.sqrt(number);
+    }
+
+    private double evaluateNextOperation(String input, double currentResult) {
+        String[] parts = input.split("(?<=[-+*/^])|(?=[-+*/^])");
+        if (parts.length != 2) {
+            throw new IllegalArgumentException("Некорректный ввод.");
+        }
+
+        String operator = parts[0];
+        double b = Double.parseDouble(parts[1]);
+
+        return performOperation(currentResult, b, operator);
+    }
+
+    private double performOperation(double a, double b, String operator) {
+        return switch (operator) {
+            case "+" -> a + b;
+            case "-" -> a - b;
+            case "*" -> a * b;
+            case "/" -> {
+                if (b == 0) {
+                    throw new ArithmeticException("Деление на ноль невозможно.");
+                }
+                yield a / b;
+            }
+            case "^" -> Math.pow(a, b);
+            default -> throw new IllegalArgumentException("Неизвестный оператор: " + operator);
+        };
     }
 }
